@@ -10,9 +10,8 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --no-cache-dir --upgrade pip
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
-# Install SpaCy model
-COPY install_spacy_model.py .
-RUN python install_spacy_model.py
+# Install SpaCy model with retries
+RUN for i in 1 2 3; do python3 -m spacy download en_core_web_sm && break || echo "Retry $i failed, retrying..." && sleep 5; done
 COPY . .
 EXPOSE 8000
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
