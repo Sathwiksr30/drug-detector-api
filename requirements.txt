@@ -1,3 +1,4 @@
+--no-binary opencv-python
 fastapi==0.115.0
 uvicorn==0.30.6
 spacy==3.7.5
