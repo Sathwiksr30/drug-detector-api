@@ -1,18 +1,17 @@
 FROM python:3.12-slim
 WORKDIR /app
-# Install system dependencies for Pillow
 RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libjpeg-dev \
     libpng-dev \
     && rm -rf /var/lib/apt/lists/*
-# Upgrade pip
 RUN pip install --no-cache-dir --upgrade pip
+COPY pre_install.py .
+RUN python pre_install.py
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
-# Install SpaCy model with retries
-RUN for i in 1 2 3; do python3 -m spacy download en_core_web_sm && break || echo "Retry $i failed, retrying..." && sleep 5; done
-# Set environment variable to prefer opencv-python-headless
+COPY install_spacy_model.py .
+RUN python install_spacy_model.py
 ENV OPENCV_PYTHON_HEADLESS=1
 COPY . .
 EXPOSE 8000

@@ -5,12 +5,12 @@ drug_keywords = {
 coded_slang = {
     "broccoli": {"category": "marijuana", "weight": 0.8}, "blunt": {"category": "marijuana", "weight": 0.8},
     "salad": {"category": "marijuana", "weight": 0.8}, "alfalfa": {"category": "marijuana", "weight": 0.8},
-    "lettuce": {"category": "marijuana", "weight": 0.8}
+    "lettuce": {"category": "marijuana", "weight": 0.8}, "2c-b": {"category": "psychedelics", "weight": 0.8}
 }
 drug_hashtags = {
     "420": {"category": "marijuana", "weight": 0.4}, "420blazeit": {"category": "marijuana", "weight": 0.5},
     "420blessed": {"category": "marijuana", "weight": 0.3}, "420cartel": {"category": "marijuana", "weight": 0.7},
-    "420connect": {"category": "marijuana", "weight": 0.6}
+    "420connect": {"category": "marijuana", "weight": 0.6}, "#2cb": {"category": "psychedelics", "weight": 0.7}
 }
 suspicious_phrases = [
     "need some stuff", "got anything good?", "looking for a plug", "where’s the connect?", "know anyone selling?"
