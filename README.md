@@ -1,12 +1,2 @@
-
-     title: Drug Detector
-     emoji: 🧪
-     colorFrom: blue
-     colorTo: purple
-     sdk: docker
-     app_file: app.py
-     pinned: false
-     python_version: 3.12
-     ---
-     Drug detection API using YOLOv8 and FastAPI.
-
+# Drug Detector API
+A FastAPI-based API for detecting drug-related content using YOLOv8, SpaCy, CLIP, and EasyOCR.
