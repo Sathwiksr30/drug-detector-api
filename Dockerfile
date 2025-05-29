@@ -1,15 +1,10 @@
 FROM python:3.12-slim
 WORKDIR /app
-# Install system dependencies for Pillow, OpenCV, and others
+# Install system dependencies for Pillow
 RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libjpeg-dev \
     libpng-dev \
-    libgl1 \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
     && rm -rf /var/lib/apt/lists/*
 # Upgrade pip to avoid installation issues
 RUN pip install --no-cache-dir --upgrade pip
