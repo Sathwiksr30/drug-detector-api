@@ -16,8 +16,6 @@ RUN chown -R appuser:appuser /home/adminuser/venv
 # Copy and run pre-install
 COPY pre_install.py .
 RUN /home/adminuser/venv/bin/python pre_install.py
-# Copy debug output
-COPY installed_packages.txt .
 # Install dependencies
 COPY requirements.txt .
 RUN /home/adminuser/venv/bin/pip install --no-cache-dir -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
