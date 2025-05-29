@@ -7,9 +7,14 @@ import keywords
 import clip
 import torch
 import easyocr
-
+import spacy
+import subprocess
 app = FastAPI()
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_sm")
+except:
+    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
 yolo_model = YOLO("models/yolov8n.pt")
 device = "cpu"
 clip_model, preprocess = clip.load("ViT-B/32", device=device)
