@@ -1,10 +1,5 @@
-FROM python:3.12-slim
+FROM python:3.12
 WORKDIR /app
-RUN apt-get update && apt-get install -y \
-    zlib1g-dev \
-    libjpeg-dev \
-    libpng-dev \
-    && rm -rf /var/lib/apt/lists/*
 RUN pip install --no-cache-dir --upgrade pip
 COPY pre_install.py .
 RUN python pre_install.py

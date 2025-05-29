@@ -23,7 +23,6 @@ reader = easyocr.Reader(['en'])
 
 @app.post("/content")
 async def analyze_content(text: str = Form(...), image: UploadFile = File(...)):
-    # Text analysis
     doc = nlp(text.lower())
     text_detections = []
     seen_keywords = set()
