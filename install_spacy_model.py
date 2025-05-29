@@ -1,7 +1,6 @@
 import spacy
 import subprocess
 import sys
-
 try:
     spacy.load("en_core_web_sm")
 except:

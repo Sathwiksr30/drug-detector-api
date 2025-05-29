@@ -12,6 +12,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 # Install SpaCy model with retries
 RUN for i in 1 2 3; do python3 -m spacy download en_core_web_sm && break || echo "Retry $i failed, retrying..." && sleep 5; done
+# Set environment variable to prefer opencv-python-headless
+ENV OPENCV_PYTHON_HEADLESS=1
 COPY . .
 EXPOSE 8000
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
