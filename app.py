@@ -7,13 +7,14 @@ import keywords
 import clip
 import torch
 import easyocr
-import spacy
 import subprocess
+import sys
+
 app = FastAPI()
 try:
     nlp = spacy.load("en_core_web_sm")
 except:
-    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    subprocess.run([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
     nlp = spacy.load("en_core_web_sm")
 yolo_model = YOLO("models/yolov8n.pt")
 device = "cpu"
