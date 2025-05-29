@@ -1,0 +1,7 @@
+__pycache__/
+models/best.pt
+test_image4.jpg
+test_spacy.py
+venv/
+verify_keywords.py
+*.pyc
